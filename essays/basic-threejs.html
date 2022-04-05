@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/essays/basic-threejs.css">
+    <link rel="icon" href="/images/favicon2.ico">
+    <link rel="stylesheet" type="text/css" href="../external_scripts/sunburst.css">
+    <script type="text/javascript" src="../external_scripts/prettify.js"></script>
+    <title>Basic Three.js</title>
+</head>
+<body onload="PR.prettyPrint()">
+
+    <header>
+        <h1 id="title"><a href="../index.html">Sathvik's Site</a></h1>
+        <nav>
+            <ul>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../essays.html">Essays</a></li>
+                <li><a href="../about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <article>
+            <h2>Creating a basic render in Three.js</h2>
+            <div class="text">
+                <p>To create a basic render in three.js, there are four requirements.</p>
+                <ol>
+                    <li>Need a scene</li>
+                    <li>Some objects</li>
+                    <li>A camera</li>
+                    <li>A renderer</li>
+                </ol>
+                <p>The scene can be thought of as a movie scene, with actors and props being the objects,
+                    and the cameras being, obviously, the cameras. Just like on a movie set, multiple cameras
+                    are possible, but usually there is no need given that a single camera can be moved almost
+                    instantaneously.
+                </p>
+                <p>Three.js, being a library, has to be imported in order to be used. This can be done in several
+                    ways: by using a script, by using modules, or by using some sort of bundler like Webpack. If 
+                    using a script, then download three.js from GitHub, and link the minified file in your 
+                    HTML; you should have something like the following:
+                </p>
+                <pre class="prettyprint lang-html">&ltcanvas id="webgl"&gt&lt/canvas&gt
+&ltscript src="./three.min.js"&gt&lt/script&gt
+&ltscript src="./script.js"&gt&lt/script&gt</pre>
+                <p>The order of the scripts is important; the "three.min.js" file will be used in "script.js", therefore has to be linked first.</p>
+                <p>A scene is created using the following code:</p>
+                <pre class="prettyprint">const scene = new THREE.Scene();</pre>
+                <p>To make a visible object, need to create a <strong>mesh</strong>, which needs geometry and material.</p>
+                <pre class="prettyprint">const geometry = new THREE.BoxGeometry(1, 1, 1);
+const material = new THREE.MeshBasicMaterial({color: 0xff4a1a});
+const cube_mesh = new THREE.Mesh(geometry, material);
+scene.add(cube_mesh);</pre>
+            
+            </div>
+          
+
+        </article>
+
+    </main>
+
+    <footer>
+        <p>©Copyright 2022 by Sathivk Hegde. All rights reserved.</p>
+    </footer>
+    
+</body>
+</html>
